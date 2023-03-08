@@ -4,7 +4,8 @@ from demoqa_tests.model.controls.checkbox import Checkbox
 from demoqa_tests.model.controls.datepicker import Datepicker
 from demoqa_tests.model.controls.dropdown import Dropdown
 from demoqa_tests.model.controls.radiobutton import Radiobutton
-from demoqa_tests.utils import date_config, path_to_file
+from demoqa_tests.utils import date_config
+from demoqa_tests.utils.path_to_file import define_path
 from demoqa_tests.utils.scroll import scroll_to
 
 
@@ -46,9 +47,7 @@ class PracticeForm:
 
     @staticmethod
     def upload_picture():
-        relative_path = '../res/logo.png'
-        path = path_to_file.define_path(relative_path)
-        browser.element('#uploadPicture').set_value(path)
+        browser.element('#uploadPicture').set_value(define_path())
 
     def input_address(self):
         browser.element('#currentAddress').type(self.user.address)
